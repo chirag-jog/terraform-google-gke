@@ -380,7 +380,7 @@ locals {
   resource_namespace = "default"
 
   # We install an older version of Tiller to match the Helm library version used in the Terraform helm provider.
-  tiller_version = "v2.11.0"
+  tiller_version = "v2.14.1"
 
   # We store the CA Secret in the kube-system Namespace, given that only cluster admins should access these.
   tls_ca_secret_namespace = "kube-system"
