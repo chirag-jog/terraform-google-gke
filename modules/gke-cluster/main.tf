@@ -12,6 +12,7 @@ resource "google_container_cluster" "cluster" {
   name        = var.name
   description = var.description
 
+  provider   = google-beta
   project    = var.project
   location   = var.location
   network    = var.network
@@ -61,6 +62,10 @@ resource "google_container_cluster" "cluster" {
 
     network_policy_config {
       disabled = ! var.enable_network_policy
+    }
+    istio_config {
+      disabled = false
+      auth     = "AUTH_MUTUAL_TLS"
     }
   }
 
