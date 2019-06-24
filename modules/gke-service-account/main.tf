@@ -22,3 +22,10 @@ resource "google_project_iam_member" "service_account-monitoring_viewer" {
   role    = "roles/monitoring.viewer"
   member  = "serviceAccount:${google_service_account.service_account.email}"
 }
+
+resource "google_project_iam_member" "service_account-devstorage" {
+  project = google_project_iam_member.service_account-monitoring_viewer.project
+  role    = "roles/storage.admin"
+  member  = "serviceAccount:${google_service_account.service_account.email}"
+
+}
